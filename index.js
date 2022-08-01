@@ -42,16 +42,16 @@ client.on("messageCreate", async message => {
                 message.channel.send(`🏆**NEW HIGHSCORE: ${count["count"]}** *Old highscore: ${count["hs"]}*🏆`)
                 count["hs"] = count["count"];
                 channel.setTopic(`Highscore: ${count["hs"]}`);
-                count["trophied"] = false;
+                count["trophied"] = 0;
             }
             count["count"] = 0;
             count["last"] = '';
             count["lastID"] = '';
         } else if (messageArray[0] == count["count"] + 1) {
             count["count"]++;
-            if (count["hs"] < count["count"] && !count["trophied"]) {
+            if (count["hs"] < count["count"] && count["trophied"] == 0) {
                 message.react("🏆");
-                count["trophied"] = true;
+                count["trophied"] = 1;
             } else if (count["count"] % 100 == 0) message.react("💯");
             else if(count["count"] == 69 || count["count"] == 696 || count["count"] == 6969 || count["count"] == 69696 || count["count"] == 696969 || count["count"] == 6969696) {message.react("💦");message.react("🔞");message.react("🍆");message.react("🥵");}
             else if(count["count"] == 420) message.react("<:weed:990740734246273095>")
@@ -65,7 +65,7 @@ client.on("messageCreate", async message => {
                 message.channel.send(`🏆 **NEW HIGHSCORE: ${count["count"]}** *Old highscore: ${count["hs"]}* 🏆`)
                 count["hs"] = count["count"];
                 channel.setTopic(`Highscore: ${count["hs"]}`);
-                count["trophied"] = false;
+                count["trophied"] = 0;
             }
             count["count"] = 0;
             count["last"] = '';
